@@ -34,28 +34,28 @@ const faqSchema = {
 >
 
   <!-- ── HERO ────────────────────────────────────────────── -->
-  <section class="relative bg-white overflow-hidden" aria-labelledby="hero-heading">
-    <!-- Subtle grid bg -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute inset-0"
-        style="background-image: linear-gradient(#e2e8f0 1px,transparent 1px),linear-gradient(90deg,#e2e8f0 1px,transparent 1px);background-size:48px 48px;opacity:0.35;"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white"></div>
-    </div>
+  <section
+    class="relative overflow-hidden bg-cover bg-center bg-no-repeat"
+    style="background-image: url('/hero.webp');"
+    aria-labelledby="hero-heading"
+  >
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/20 pointer-events-none" aria-hidden="true"></div>
 
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
       <div class="max-w-3xl">
         <!-- Status pill -->
-        <div class="inline-flex items-center gap-2 border border-border bg-white text-ink-secondary text-xs font-body px-3.5 py-1.5 rounded-full mb-7 shadow-card">
+        <div class="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-sm text-white/90 text-xs font-body px-3.5 py-1.5 rounded-full mb-7">
           <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
           Open daily · English-speaking doctors
         </div>
 
-        <h1 id="hero-heading" class="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.1] tracking-tight mb-5">
+        <h1 id="hero-heading" class="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight mb-5">
           Trusted Medical Care<br/>
           <span class="text-primary">in Legian, Bali</span>
         </h1>
 
-        <p class="text-ink-secondary text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
+        <p class="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
           Professional healthcare for tourists, expats, and local residents — from emergency treatment to routine check-ups. Open every day, 08:00–22:00.
         </p>
 
@@ -72,7 +72,7 @@ const faqSchema = {
             </svg>
             WhatsApp Us
           </a>
-          <a href="/contact" class="btn-outline btn-lg">
+          <a href="/contact" class="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 backdrop-blur-sm text-white text-sm font-medium px-5 py-2.5 hover:bg-white/20 transition-colors duration-200 btn-lg">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
