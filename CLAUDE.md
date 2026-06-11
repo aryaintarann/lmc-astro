@@ -42,3 +42,9 @@ pnpm preview      # Preview production build
 ### Build notes
 - `@playform/compress` runs post-build to compress HTML/CSS/JS/SVG.
 - `.npmrc` allowlists `esbuild` and `sharp` for pnpm build scripts (`onlyBuiltDependencies`).
+
+## IMPORTANT
+- ALWAYS USE CONTEXT7 BEFORE MAKE ANY CHANGE
+- ALWAYS USE SKILLS BEFORE MAKE ANY CHANGE
+- ALWAYS DO GIT ADD, GIT COMMIT, AND GIT PUSH AFTER MAKE CHANGE
+- NEVER PUT SENSITIVE DATA ON THE FRONT END AND GITHUB
