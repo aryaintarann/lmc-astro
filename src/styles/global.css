@@ -93,9 +93,58 @@
 
 .appear-group > * { transition-delay: calc(var(--i, 0) * 70ms); }
 
+/* Scroll animation variants via data-anim */
+.appear[data-anim="slide-left"]  { transform: translateX(-24px); opacity: 0; }
+.appear[data-anim="slide-right"] { transform: translateX(24px);  opacity: 0; }
+.appear[data-anim="scale-up"]    { transform: scale(0.94);        opacity: 0; }
+.appear[data-anim="fade"]        { transform: none;               opacity: 0; }
+
+.appear[data-anim="slide-left"].in-view,
+.appear[data-anim="slide-right"].in-view  { opacity: 1; transform: translateX(0); }
+.appear[data-anim="scale-up"].in-view     { opacity: 1; transform: scale(1); }
+.appear[data-anim="fade"].in-view         { opacity: 1; }
+
+/* ── Page entrance animations ─────────────────── */
+@keyframes page-slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter main {
+  animation: page-slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes nav-slide-down {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+header#site-header {
+  animation: nav-slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes hero-banner-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-hero {
+  animation: hero-banner-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.15s;
+  animation-fill-mode: both;
+}
+
+/* ── View transition slide effect ────────────── */
+@keyframes slide-from-right { from { transform: translateX(16px); opacity: 0; } }
+@keyframes slide-to-left    { to   { transform: translateX(-16px); opacity: 0; } }
+::view-transition-old(root) { animation: 200ms ease-in  both slide-to-left; }
+::view-transition-new(root) { animation: 280ms ease-out both slide-from-right; }
+
 /* ── Reduced motion ───────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .appear { opacity: 1; transform: none; transition: none; }
+  .page-enter main,
+  .page-hero,
+  header#site-header { animation: none; }
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
 }
 
 /* ── Subtle scrollbar ─────────────────────────── */

@@ -17,7 +17,7 @@ const breadcrumb = {
   schemaMarkup={breadcrumb}
 >
   <!-- Header -->
-  <section class="border-b border-border bg-surface py-12">
+  <section class="border-b border-border bg-surface py-12 page-hero">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" class="mb-5">
         <ol class="flex items-center gap-2 text-xs text-ink-secondary/60">
@@ -68,7 +68,7 @@ const breadcrumb = {
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
         <!-- Info + Form -->
-        <div class="space-y-8 appear">
+        <div class="space-y-8 appear" data-anim="slide-left">
           <!-- Clinic info -->
           <div class="border border-border rounded-xl divide-y divide-border overflow-hidden">
             <div class="px-5 py-4 bg-surface">
@@ -131,7 +131,7 @@ const breadcrumb = {
         </div>
 
         <!-- Map -->
-        <div class="appear">
+        <div class="appear" data-anim="slide-right">
           <div class="sticky top-24 space-y-4">
             <div class="border border-border rounded-xl overflow-hidden" style="height:440px;">
               <iframe

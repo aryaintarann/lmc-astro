@@ -1,8 +1,8 @@
 ---
 import { clinic } from '@/data/clinic';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-const logoSvg = readFileSync(fileURLToPath(new URL('../../../public/lmc.svg', import.meta.url)), 'utf-8');
+import { resolve } from 'node:path';
+const logoSvg = readFileSync(resolve(process.cwd(), 'public/lmc.svg'), 'utf-8');
 ---
 
 <footer class="border-t border-border bg-white mt-0">

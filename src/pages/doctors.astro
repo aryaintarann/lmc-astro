@@ -27,7 +27,7 @@ const breadcrumb = {
   schemaMarkup={[...physSchema, breadcrumb]}
 >
   <!-- Header -->
-  <section class="border-b border-border bg-surface py-12">
+  <section class="border-b border-border bg-surface py-12 page-hero">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" class="mb-5">
         <ol class="flex items-center gap-2 text-xs text-ink-secondary/60">
@@ -47,7 +47,7 @@ const breadcrumb = {
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 appear-group">
         {doctors.map(doc => (
-          <article class="card appear">
+          <article class="card appear" data-anim="scale-up">
             <!-- Photo -->
             <div class="bg-surface aspect-[4/3] flex items-center justify-center border-b border-border">
               <div class="w-24 h-24 bg-primary-mid rounded-full flex items-center justify-center">

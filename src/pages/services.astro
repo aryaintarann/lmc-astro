@@ -34,7 +34,7 @@ const breadcrumb = {
   schemaMarkup={breadcrumb}
 >
   <!-- Header -->
-  <section class="border-b border-border bg-surface py-12">
+  <section class="border-b border-border bg-surface py-12 page-hero">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" class="mb-5">
         <ol class="flex items-center gap-2 text-xs text-ink-secondary/60">
@@ -54,7 +54,7 @@ const breadcrumb = {
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 appear-group">
         {services.map(s => (
-          <article class="card p-6 group hover:-translate-y-0.5 transition-transform duration-200 appear">
+          <article class="card p-6 group hover:-translate-y-0.5 transition-transform duration-200 appear" data-anim="scale-up">
             <div class="flex items-start justify-between mb-5">
               <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center group-hover:bg-primary transition-colors duration-200">
                 <svg class="w-5 h-5 text-primary group-hover:text-white transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75" set:html={icons[s.data.icon]??icons.stethoscope}/>
