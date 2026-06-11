@@ -1,0 +1,20 @@
+{
+  "id": "physiotherapy",
+  "name": "Physiotherapy",
+  "slug": "physiotherapy",
+  "shortDescription": "Rehabilitation and physiotherapy for sports injuries, musculoskeletal conditions, and post-surgery recovery.",
+  "fullDescription": "Our Physiotherapy service helps patients recover from injuries, manage pain, and restore physical function. Our certified physiotherapist provides assessment and treatment for sports injuries, back and neck pain, joint conditions, post-operative rehabilitation, and neurological conditions. Treatment modalities include manual therapy, therapeutic exercises, ultrasound therapy, and TENS.",
+  "icon": "activity",
+  "image": "/images/services/physiotherapy.jpg",
+  "features": [
+    "Sports injury rehabilitation",
+    "Back and neck pain treatment",
+    "Post-surgery recovery",
+    "Manual and soft tissue therapy",
+    "Therapeutic exercises",
+    "Ultrasound and TENS therapy"
+  ],
+  "isEmergency": false,
+  "isFeatured": false,
+  "order": 10
+}

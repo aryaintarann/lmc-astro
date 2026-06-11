@@ -1,0 +1,169 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { clinic } from '@/data/clinic';
+
+const breadcrumb = {
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":clinic.url+"/"},
+    {"@type":"ListItem","position":2,"name":"Contact","item":clinic.url+"/contact"}
+  ]
+};
+---
+
+<BaseLayout
+  title="Contact Legian Medical Clinic – Location & Hours"
+  description="Find us in Legian, Bali. Get directions, contact number, WhatsApp, and clinic hours for Legian Medical Clinic."
+  schemaMarkup={breadcrumb}
+>
+  <!-- Header -->
+  <section class="border-b border-border bg-surface py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-5">
+        <ol class="flex items-center gap-2 text-xs text-ink-secondary/60">
+          <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
+          <li aria-hidden="true">·</li>
+          <li><span class="text-ink" aria-current="page">Contact</span></li>
+        </ol>
+      </nav>
+      <p class="section-label mb-2">Contact</p>
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink">Get in Touch</h1>
+      <p class="text-ink-secondary mt-2 max-w-xl">Find us, call us, or send a message — we're here to help every day.</p>
+    </div>
+  </section>
+
+  <!-- Quick actions -->
+  <section class="border-b border-border bg-white" aria-label="Quick contact">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {[
+          { href:`https://wa.me/${clinic.contact.whatsapp}`, label:'WhatsApp', value:clinic.contact.whatsappDisplay, bg:'bg-[#25D366]', external:true, icon:`<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.18 6.18 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.128.558 4.127 1.535 5.857L.057 23.882a.5.5 0 00.612.612l6.055-1.476A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.359-.214-3.728.908.936-3.628-.234-.374A9.818 9.818 0 1112 21.818z"/>`, fill:true },
+          { href:`tel:${clinic.contact.phone}`, label:'Phone', value:clinic.contact.phone, bg:'bg-primary', external:false, icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>`, fill:false },
+          { href:`mailto:${clinic.contact.email}`, label:'Email', value:clinic.contact.email, bg:'bg-ink', external:false, icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`, fill:false },
+          { href:clinic.googleMapsLink, label:'Directions', value:'Open in Google Maps', bg:'bg-[#4285F4]', external:true, icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`, fill:false },
+        ].map(c => (
+          <a
+            href={c.href}
+            target={c.external ? '_blank' : undefined}
+            rel={c.external ? 'noopener noreferrer' : undefined}
+            class="flex items-center gap-3 border border-border rounded-xl p-4 hover:border-primary-dark hover:shadow-card-hover transition-all group"
+          >
+            <div class={`${c.bg} w-9 h-9 rounded-lg flex items-center justify-center shrink-0`}>
+              <svg class="w-4 h-4 text-white" fill={c.fill ? 'currentColor' : 'none'} stroke={c.fill ? 'none' : 'currentColor'} viewBox="0 0 24 24" aria-hidden="true" stroke-width={c.fill ? undefined : '1.75'} set:html={c.icon}/>
+            </div>
+            <div class="min-w-0">
+              <p class="text-label text-ink-secondary/60 mb-0.5">{c.label}</p>
+              <p class="text-sm font-medium text-ink truncate group-hover:text-primary transition-colors">{c.value}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <section class="py-16 bg-white" aria-labelledby="contact-main-h">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="contact-main-h" class="sr-only">Contact details and form</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+        <!-- Info + Form -->
+        <div class="space-y-8 appear">
+          <!-- Clinic info -->
+          <div class="border border-border rounded-xl divide-y divide-border overflow-hidden">
+            <div class="px-5 py-4 bg-surface">
+              <p class="section-label">Clinic Information</p>
+            </div>
+            <address class="not-italic divide-y divide-border">
+              {[
+                {
+                  label:'Address',
+                  value:clinic.address.full,
+                  icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+                },
+                {
+                  label:'Hours',
+                  value:clinic.hours.display,
+                  icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+                },
+                {
+                  label:'Phone',
+                  value:clinic.contact.phone,
+                  icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>`,
+                },
+              ].map(row => (
+                <div class="flex gap-3 px-5 py-4">
+                  <svg class="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75" set:html={row.icon}/>
+                  <div>
+                    <p class="text-label text-ink-secondary/60 mb-0.5">{row.label}</p>
+                    <p class="text-sm text-ink">{row.value}</p>
+                  </div>
+                </div>
+              ))}
+            </address>
+          </div>
+
+          <!-- Form -->
+          <div class="border border-border rounded-xl overflow-hidden">
+            <div class="px-5 py-4 bg-surface border-b border-border">
+              <p class="section-label">Send a Message</p>
+            </div>
+            <form action="https://formspree.io/f/your-form-id" method="POST" class="p-5 space-y-4" aria-label="Contact form">
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+              <div>
+                <label for="name" class="label">Full Name <span class="text-red-500" aria-label="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="Your full name" class="input"/>
+              </div>
+              <div>
+                <label for="email" class="label">Email <span class="text-red-500" aria-label="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" class="input"/>
+              </div>
+              <div>
+                <label for="message" class="label">Message <span class="text-red-500" aria-label="required">*</span></label>
+                <textarea id="message" name="message" required rows="4" placeholder="How can we help you?" class="input resize-none"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full justify-center">
+                Send Message
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="appear">
+          <div class="sticky top-24 space-y-4">
+            <div class="border border-border rounded-xl overflow-hidden" style="height:440px;">
+              <iframe
+                src={clinic.googleMapsEmbed}
+                title="Legian Medical Clinic Location Map"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full h-full border-0"
+                aria-label="Map showing Legian Medical Clinic location"
+              ></iframe>
+            </div>
+            <a
+              href={clinic.googleMapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 border border-border rounded-xl p-4 hover:border-primary hover:shadow-card-hover transition-all group"
+            >
+              <div class="w-9 h-9 bg-primary rounded-lg flex items-center justify-center shrink-0">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium text-ink group-hover:text-primary transition-colors">Open in Google Maps</p>
+                <p class="text-xs text-ink-secondary truncate">{clinic.address.locality}, {clinic.address.region}</p>
+              </div>
+              <svg class="w-4 h-4 text-ink-secondary group-hover:text-primary shrink-0 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

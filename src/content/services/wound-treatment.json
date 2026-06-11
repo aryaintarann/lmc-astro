@@ -1,0 +1,20 @@
+{
+  "id": "wound-treatment",
+  "name": "Wound Treatment",
+  "slug": "wound-treatment",
+  "shortDescription": "Professional wound care, cleaning, suturing, and dressing for cuts, lacerations, and skin injuries.",
+  "fullDescription": "Our Wound Treatment service provides professional care for all types of wounds, from minor cuts and abrasions to more complex lacerations requiring suturing. Our medical team ensures proper wound cleaning, debridement, closure, and dressing to prevent infection and promote optimal healing. We also provide follow-up care and wound monitoring to ensure proper recovery.",
+  "icon": "bandage",
+  "image": "/images/services/wound-treatment.jpg",
+  "features": [
+    "Wound cleaning and debridement",
+    "Suturing and wound closure",
+    "Professional dressing and bandaging",
+    "Infection assessment and treatment",
+    "Tetanus vaccination if required",
+    "Follow-up wound monitoring"
+  ],
+  "isEmergency": false,
+  "isFeatured": true,
+  "order": 3
+}

@@ -1,0 +1,20 @@
+{
+  "id": "emergency-care",
+  "name": "Emergency Care",
+  "slug": "emergency-care",
+  "shortDescription": "Immediate medical attention for urgent conditions and injuries. Our team is ready to handle emergencies swiftly.",
+  "fullDescription": "Our Emergency Care unit provides immediate medical attention for urgent and life-threatening conditions. Whether you have sustained an injury, are experiencing sudden severe symptoms, or require urgent medical intervention, our trained emergency staff are equipped to handle a wide range of critical situations. We prioritize rapid assessment and treatment to stabilize your condition and ensure the best possible outcome.",
+  "icon": "heart-pulse",
+  "image": "/images/services/emergency-care.jpg",
+  "features": [
+    "24/7 urgent care availability",
+    "Rapid triage and assessment",
+    "Treatment of acute injuries",
+    "Cardiac and respiratory emergencies",
+    "Allergic reactions and anaphylaxis",
+    "Stabilization and transfer coordination"
+  ],
+  "isEmergency": true,
+  "isFeatured": true,
+  "order": 2
+}

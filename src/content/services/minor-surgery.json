@@ -1,0 +1,20 @@
+{
+  "id": "minor-surgery",
+  "name": "Minor Surgery",
+  "slug": "minor-surgery",
+  "shortDescription": "In-clinic minor surgical procedures including cyst removal, abscess drainage, and skin lesion excision.",
+  "fullDescription": "Our Minor Surgery service covers a range of small surgical procedures that can be performed safely and comfortably in our clinic under local anesthesia. Our experienced surgeons handle cyst and lipoma removal, abscess incision and drainage, skin tag and lesion excision, ingrown toenail treatment, and more. All procedures are performed with strict sterile protocols to minimize risk of infection.",
+  "icon": "scissors",
+  "image": "/images/services/minor-surgery.jpg",
+  "features": [
+    "Cyst and lipoma removal",
+    "Abscess incision and drainage",
+    "Skin lesion and tag excision",
+    "Ingrown toenail treatment",
+    "Local anesthesia procedures",
+    "Sterile operating environment"
+  ],
+  "isEmergency": false,
+  "isFeatured": false,
+  "order": 6
+}

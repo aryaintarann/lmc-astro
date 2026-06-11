@@ -1,0 +1,16 @@
+{
+  "id": "dr-ayu-pratiwi",
+  "name": "dr. Ayu Pratiwi",
+  "slug": "dr-ayu-pratiwi",
+  "title": "dr.",
+  "specialization": "General Practitioner",
+  "education": [
+    "M.D., Faculty of Medicine, Universitas Udayana, Bali (2012)",
+    "Certificate in Travel Medicine, ISTM (2018)"
+  ],
+  "languages": ["Indonesian", "English"],
+  "photo": "/images/doctors/dr-ayu-pratiwi.jpg",
+  "schedule": "Mon – Fri, 08:00 – 15:00",
+  "bio": "dr. Ayu Pratiwi is a dedicated general practitioner with over 10 years of experience serving patients in Bali. She has a special interest in travel medicine and tropical diseases, making her an excellent choice for international visitors requiring medical care.",
+  "order": 1
+}

@@ -1,0 +1,20 @@
+{
+  "id": "travel-medicine",
+  "name": "Travel Medicine & Vaccination",
+  "slug": "travel-medicine",
+  "shortDescription": "Pre-travel health consultations, vaccinations, and travel health certificates for international travelers.",
+  "fullDescription": "Our Travel Medicine service prepares travelers for safe and healthy international journeys. We provide comprehensive pre-travel consultations, recommended vaccinations, malaria prophylaxis, travel health kits, and health certificates. Whether you're traveling to a tropical region, Southeast Asia, or further afield, our doctors will ensure you are properly protected before you go.",
+  "icon": "plane",
+  "image": "/images/services/travel-medicine.jpg",
+  "features": [
+    "Pre-travel health consultation",
+    "Required and recommended vaccinations",
+    "Typhoid, Hepatitis A & B vaccines",
+    "Malaria prevention and prophylaxis",
+    "Travel health certificates",
+    "Post-travel illness evaluation"
+  ],
+  "isEmergency": false,
+  "isFeatured": false,
+  "order": 5
+}

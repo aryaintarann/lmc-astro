@@ -1,0 +1,16 @@
+{
+  "id": "drg-sinta-dewi",
+  "name": "drg. Sinta Dewi Lestari",
+  "slug": "drg-sinta-dewi",
+  "title": "drg.",
+  "specialization": "Dentist",
+  "education": [
+    "D.D.S., Faculty of Dentistry, Universitas Gadjah Mada, Yogyakarta (2014)",
+    "Certificate in Aesthetic Dentistry (2020)"
+  ],
+  "languages": ["Indonesian", "English"],
+  "photo": "/images/doctors/drg-sinta-dewi.jpg",
+  "schedule": "Tue, Thu, Sat, 09:00 – 17:00",
+  "bio": "drg. Sinta Dewi Lestari is an experienced dentist with a gentle approach that puts nervous patients at ease. She is skilled in general and aesthetic dentistry, providing comfortable and effective dental care for patients of all ages.",
+  "order": 3
+}

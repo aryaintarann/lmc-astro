@@ -1,0 +1,20 @@
+{
+  "id": "dental-care",
+  "name": "Dental Care",
+  "slug": "dental-care",
+  "shortDescription": "General dental services including check-ups, cleaning, fillings, and emergency tooth pain treatment.",
+  "fullDescription": "Our Dental Care service provides general dentistry for patients of all ages. Our qualified dentist handles routine check-ups and cleanings, cavity fillings, tooth extractions, emergency dental pain treatment, and basic cosmetic procedures. We use modern dental equipment and follow strict sterilization protocols to ensure a safe and comfortable experience.",
+  "icon": "smile",
+  "image": "/images/services/dental-care.jpg",
+  "features": [
+    "Dental check-up and cleaning",
+    "Cavity fillings and restorations",
+    "Tooth extractions",
+    "Emergency dental pain treatment",
+    "Oral health consultation",
+    "X-ray and diagnosis"
+  ],
+  "isEmergency": false,
+  "isFeatured": false,
+  "order": 9
+}

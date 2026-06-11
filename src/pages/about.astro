@@ -1,0 +1,164 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { clinic } from '@/data/clinic';
+
+const breadcrumb = {
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":clinic.url+"/"},
+    {"@type":"ListItem","position":2,"name":"About","item":clinic.url+"/about"}
+  ]
+};
+---
+
+<BaseLayout
+  title="About Us – Legian Medical Clinic"
+  description="Learn about Legian Medical Clinic's mission, team, and commitment to providing quality healthcare in Bali for locals, tourists, and expats."
+  schemaMarkup={breadcrumb}
+>
+
+  <!-- Page header -->
+  <section class="border-b border-border bg-surface py-12" aria-labelledby="about-h">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-5">
+        <ol class="flex items-center gap-2 text-xs text-ink-secondary/60">
+          <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
+          <li aria-hidden="true">·</li>
+          <li><span class="text-ink" aria-current="page">About</span></li>
+        </ol>
+      </nav>
+      <p class="section-label mb-2">About Us</p>
+      <h1 id="about-h" class="font-heading font-bold text-3xl md:text-4xl text-ink">About Legian Medical Clinic</h1>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="py-20 bg-white" aria-labelledby="story-h">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="appear">
+          <p class="section-label mb-3">Our Story</p>
+          <h2 id="story-h" class="section-title mb-6">Healthcare You Can Trust in the Heart of Legian</h2>
+          <div class="space-y-4 text-ink-secondary leading-relaxed text-[0.9375rem]">
+            <p>Legian Medical Clinic was founded with a clear purpose: to provide accessible, high-quality medical care to the diverse community of Legian — a vibrant neighborhood that welcomes thousands of international tourists, expatriates, and local residents every year.</p>
+            <p>Understanding the unique needs of international visitors — from travel-related illnesses to injury care — we built a clinic where you receive professional treatment in a language you understand, in an environment that puts you at ease.</p>
+            <p>Today, Legian Medical Clinic is a trusted healthcare partner for the Legian, Kuta, and Seminyak communities. Our qualified doctors, nurses, and staff work every day to ensure every patient receives the attention and treatment they deserve.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 appear">
+          {[
+            { num:'10+', label:'Years of Service', bg:'bg-primary', text:'text-white' },
+            { num:'5K+', label:'Patients Yearly',  bg:'bg-primary-light', text:'text-primary' },
+            { num:'3+',  label:'Expert Doctors',   bg:'bg-accent-light', text:'text-accent' },
+            { num:'10',  label:'Medical Services', bg:'bg-surface border border-border', text:'text-ink' },
+          ].map(stat => (
+            <div class={`${stat.bg} rounded-xl p-6 flex flex-col items-center justify-center text-center aspect-square`}>
+              <p class={`font-heading font-extrabold text-4xl ${stat.text} mb-1`}>{stat.num}</p>
+              <p class={`text-sm font-medium ${stat.text} opacity-80`}>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-20 bg-surface border-y border-border" aria-labelledby="mission-h">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 appear">
+        <p class="section-label mb-2">Direction</p>
+        <h2 id="mission-h" class="section-title">Mission & Vision</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          {
+            icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+            title:'Our Mission',
+            body:'To provide accessible, professional, and compassionate healthcare to every patient — regardless of nationality or language — with a commitment to prompt, high-quality treatment that restores health and peace of mind.',
+          },
+          {
+            icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>`,
+            title:'Our Vision',
+            body:'To be the most trusted medical clinic in Legian and the greater Bali area, recognized for clinical excellence, multilingual care, and a patient experience that sets the standard for private clinics in Indonesia.',
+          },
+        ].map(item => (
+          <div class="card p-8 appear">
+            <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center mb-5">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75" set:html={item.icon}/>
+            </div>
+            <h3 class="font-heading font-semibold text-xl text-ink mb-3">{item.title}</h3>
+            <p class="text-ink-secondary leading-relaxed text-[0.9375rem]">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="py-20 bg-white" aria-labelledby="values-h">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 appear">
+        <p class="section-label mb-2">Principles</p>
+        <h2 id="values-h" class="section-title">Core Values</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 appear-group">
+        {[
+          { title:'Compassionate', desc:'We treat every patient with empathy and genuine care.',         icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>` },
+          { title:'Professional', desc:'We uphold the highest standards of medical ethics.',              icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>` },
+          { title:'Accessible',   desc:'Quality healthcare for everyone, regardless of background.',     icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>` },
+          { title:'Responsive',   desc:'We act quickly and efficiently, especially in urgent situations.',icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>` },
+          { title:'Trustworthy',  desc:'Your health information is always handled with complete confidentiality.', icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>` },
+        ].map(v => (
+          <div class="border border-border rounded-xl p-5 appear">
+            <div class="w-9 h-9 bg-primary-light rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-4.5 h-4.5 text-primary w-[1.125rem] h-[1.125rem]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75" set:html={v.icon}/>
+            </div>
+            <h3 class="font-heading font-semibold text-ink mb-1.5">{v.title}</h3>
+            <p class="text-ink-secondary text-sm leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facilities -->
+  <section class="py-20 bg-surface border-t border-border" aria-labelledby="facilities-h">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 appear">
+        <p class="section-label mb-2">Infrastructure</p>
+        <h2 id="facilities-h" class="section-title">Our Facilities</h2>
+        <p class="section-desc mx-auto">Modern, well-equipped, and maintained to the highest hygiene standards.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 appear-group">
+        {[
+          { icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`, title:'Emergency Room' },
+          { icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M9 3H7a2 2 0 00-2 2v11a4 4 0 004 4h6a4 4 0 004-4V5a2 2 0 00-2-2h-2M9 3a2 2 0 002 2h2a2 2 0 002-2M9 3a2 2 0 012-2h2a2 2 0 012 2"/>`, title:'Consultation Rooms' },
+          { icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>`, title:'In-House Lab' },
+          { icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>`, title:'Procedure Room' },
+          { icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`, title:'Pharmacy' },
+          { icon:`<path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>`, title:'IV Drip Room' },
+        ].map(f => (
+          <div class="card p-4 flex flex-col items-center text-center appear">
+            <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75" set:html={f.icon}/>
+            </div>
+            <p class="text-sm font-medium text-ink">{f.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-white border-t border-border" aria-label="Call to action">
+    <div class="max-w-lg mx-auto px-4 sm:px-6 text-center appear">
+      <h2 class="section-title mb-4">Ready to Visit?</h2>
+      <p class="text-ink-secondary mb-8 text-sm">Walk in anytime — no appointment needed.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="/contact" class="btn-primary btn-lg">Get Directions</a>
+        <a href="/services" class="btn-outline btn-lg">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

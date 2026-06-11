@@ -1,0 +1,103 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { clinic } from '@/data/clinic';
+
+const all      = await getCollection('services');
+const services = all.sort((a,b)=>a.data.order-b.data.order);
+
+const icons: Record<string,string> = {
+  stethoscope:    `<path stroke-linecap="round" stroke-linejoin="round" d="M9 3H7a2 2 0 00-2 2v11a4 4 0 004 4h6a4 4 0 004-4V5a2 2 0 00-2-2h-2M9 3a2 2 0 002 2h2a2 2 0 002-2M9 3a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3"/>`,
+  'heart-pulse':  `<path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>`,
+  bandage:        `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`,
+  droplets:       `<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>`,
+  plane:          `<path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>`,
+  scissors:       `<path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/>`,
+  'flask-conical':`<path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>`,
+  'clipboard-list':`<path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3"/>`,
+  smile:          `<path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+  activity:       `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke-linecap="round" stroke-linejoin="round"/>`,
+};
+
+const breadcrumb = {
+  "@context":"https://schema.org","@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":clinic.url+"/"},
+    {"@type":"ListItem","position":2,"name":"Services","item":clinic.url+"/services"}
+  ]
+};
+---
+
+<BaseLayout
+  title="Medical Services – Legian Medical Clinic Bali"
+  description="Comprehensive medical services in Legian Bali: general practice, emergency care, IV therapy, vaccinations, lab tests, dental care & more. Open daily."
+  schemaMarkup={breadcrumb}
+>
+  <!-- Header -->
+  <section class="border-b border-border bg-surface py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="Breadcrumb" class="mb-5">
+        <ol class="flex items-center gap-2 text-xs text-ink-secondary/60">
+          <li><a href="/" class="hover:text-ink transition-colors">Home</a></li>
+          <li aria-hidden="true">·</li>
+          <li><span class="text-ink" aria-current="page">Services</span></li>
+        </ol>
+      </nav>
+      <p class="section-label mb-2">Medical Services</p>
+      <h1 class="font-heading font-bold text-3xl md:text-4xl text-ink">Our Services</h1>
+      <p class="text-ink-secondary mt-2 max-w-xl">Comprehensive medical care for all your health needs — from emergencies to routine check-ups.</p>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="py-20 bg-white" aria-label="All services">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 appear-group">
+        {services.map(s => (
+          <article class="card p-6 group hover:-translate-y-0.5 transition-transform duration-200 appear">
+            <div class="flex items-start justify-between mb-5">
+              <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center group-hover:bg-primary transition-colors duration-200">
+                <svg class="w-5 h-5 text-primary group-hover:text-white transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="1.75" set:html={icons[s.data.icon]??icons.stethoscope}/>
+              </div>
+              {s.data.isEmergency && <span class="badge-emergency">Emergency</span>}
+            </div>
+            <h2 class="font-heading font-semibold text-ink text-base mb-2 group-hover:text-primary transition-colors">{s.data.name}</h2>
+            <p class="text-ink-secondary text-sm leading-relaxed mb-5">{s.data.shortDescription}</p>
+            <ul class="space-y-1.5 mb-5">
+              {s.data.features.slice(0,3).map(f => (
+                <li class="flex items-start gap-2 text-xs text-ink-secondary">
+                  <svg class="w-3.5 h-3.5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={`/services/${s.data.slug}`} class="inline-flex items-center gap-1.5 text-primary text-sm font-medium hover:gap-2 transition-all" aria-label={`Learn more about ${s.data.name}`}>
+              Learn more
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact strip -->
+  <section class="py-14 border-t border-border bg-surface" aria-label="Emergency contact">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center appear">
+      <p class="section-label mb-3">Need Help Now?</p>
+      <h2 class="section-title mb-4">Contact Us Anytime</h2>
+      <p class="text-ink-secondary text-sm mb-8">Open daily 08:00–22:00. Walk in or reach us directly.</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href={`https://wa.me/${clinic.contact.whatsapp}`} target="_blank" rel="noopener noreferrer" class="btn-whatsapp btn-lg">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a6.18 6.18 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.128.558 4.127 1.535 5.857L.057 23.882a.5.5 0 00.612.612l6.055-1.476A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.375l-.359-.214-3.728.908.936-3.628-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          WhatsApp Us
+        </a>
+        <a href={`tel:${clinic.contact.phone}`} class="btn-outline btn-lg">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          {clinic.contact.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

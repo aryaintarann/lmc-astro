@@ -1,0 +1,20 @@
+{
+  "id": "medical-checkup",
+  "name": "Medical Check-Up",
+  "slug": "medical-checkup",
+  "shortDescription": "Comprehensive medical examinations for health screening, visa applications, and pre-employment requirements.",
+  "fullDescription": "Our Medical Check-Up service provides thorough health assessments for various purposes including routine preventive care, visa and immigration requirements, pre-employment medicals, and insurance screening. Our check-up packages include physical examination, blood work, urinalysis, ECG, chest X-ray (referral), and a detailed consultation with one of our physicians.",
+  "icon": "clipboard-list",
+  "image": "/images/services/medical-checkup.jpg",
+  "features": [
+    "Comprehensive physical examination",
+    "Blood and urine tests",
+    "Blood pressure and vital signs",
+    "ECG / electrocardiogram",
+    "Visa and immigration medicals",
+    "Pre-employment health clearance"
+  ],
+  "isEmergency": false,
+  "isFeatured": false,
+  "order": 8
+}

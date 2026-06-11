@@ -1,0 +1,20 @@
+{
+  "id": "iv-drip-therapy",
+  "name": "IV Drip & Infusion Therapy",
+  "slug": "iv-drip-therapy",
+  "shortDescription": "Revitalizing IV drip therapy for hydration, vitamin infusions, hangover recovery, and immune support.",
+  "fullDescription": "Our IV Drip & Infusion Therapy service delivers essential fluids, vitamins, minerals, and medications directly into the bloodstream for fast and effective results. Whether you need rapid rehydration after a long day on the beach, vitamin boosts for energy and immunity, recovery from illness, or treatment for dehydration and electrolyte imbalance, our IV therapy packages are tailored to your needs.",
+  "icon": "droplets",
+  "image": "/images/services/iv-drip.jpg",
+  "features": [
+    "Rapid rehydration therapy",
+    "Vitamin C and B-complex infusions",
+    "Hangover recovery drip",
+    "Immune booster infusion",
+    "Electrolyte replacement",
+    "Anti-nausea and pain relief via IV"
+  ],
+  "isEmergency": false,
+  "isFeatured": true,
+  "order": 4
+}

@@ -1,0 +1,43 @@
+---
+import Head from '@/components/layout/Head.astro';
+import Navbar from '@/components/layout/Navbar.astro';
+import Footer from '@/components/layout/Footer.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  canonicalURL?: string;
+  schemaMarkup?: object | object[];
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <Head {...Astro.props} />
+  </head>
+  <body class="pt-16">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:text-sm">
+      Skip to main content
+    </a>
+    <Navbar />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      const io = new IntersectionObserver(
+        entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); }),
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.appear').forEach((el, i) => {
+        (el as HTMLElement).style.setProperty('--i', String(i % 6));
+        io.observe(el);
+      });
+    </script>
+  </body>
+</html>

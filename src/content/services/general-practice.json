@@ -1,0 +1,20 @@
+{
+  "id": "general-practice",
+  "name": "General Practice",
+  "slug": "general-practice",
+  "shortDescription": "Comprehensive primary healthcare for adults and children, including diagnosis and treatment of common illnesses.",
+  "fullDescription": "Our General Practice service provides comprehensive primary care for patients of all ages. Our experienced general practitioners handle everything from routine check-ups to diagnosis and treatment of common illnesses such as fever, infections, respiratory conditions, gastrointestinal issues, and more. We take a patient-centered approach to ensure you receive the care you need quickly and effectively.",
+  "icon": "stethoscope",
+  "image": "/images/services/general-practice.jpg",
+  "features": [
+    "Diagnosis and treatment of common illnesses",
+    "Routine health check-ups",
+    "Prescription and medication management",
+    "Referrals to specialists when needed",
+    "Pediatric and adult care",
+    "Chronic disease management"
+  ],
+  "isEmergency": false,
+  "isFeatured": true,
+  "order": 1
+}

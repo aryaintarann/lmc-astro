@@ -1,0 +1,106 @@
+---
+import { clinic } from '@/data/clinic';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  canonicalURL?: string;
+  schemaMarkup?: object | object[];
+}
+
+const {
+  title,
+  description,
+  ogImage = clinic.ogImage,
+  ogType = 'website',
+  canonicalURL = Astro.url.href,
+  schemaMarkup,
+} = Astro.props;
+
+const clinicSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "@id": `${clinic.url}/#clinic`,
+  "name": clinic.name,
+  "alternateName": "Legian Medical",
+  "description": clinic.description,
+  "url": clinic.url,
+  "logo": `${clinic.url}/images/logo.png`,
+  "image": `${clinic.url}/images/clinic-exterior.jpg`,
+  "telephone": clinic.contact.phone,
+  "email": clinic.contact.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": clinic.address.street,
+    "addressLocality": clinic.address.locality,
+    "addressRegion": clinic.address.region,
+    "postalCode": clinic.address.postalCode,
+    "addressCountry": clinic.address.countryCode,
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": clinic.geo.latitude,
+    "longitude": clinic.geo.longitude,
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": clinic.hours.days,
+      "opens": clinic.hours.opens,
+      "closes": clinic.hours.closes,
+    }
+  ],
+  "hasMap": clinic.googleMapsLink,
+  "priceRange": clinic.priceRange,
+  "currenciesAccepted": clinic.payment.currencies,
+  "paymentAccepted": clinic.payment.methods,
+  "availableLanguage": clinic.languages,
+  "medicalSpecialty": ["General Practice", "Emergency Medicine", "Travel Medicine"],
+  "sameAs": [
+    clinic.socialMedia.googleBusiness,
+    clinic.socialMedia.instagram,
+  ]
+};
+
+const schemas = [clinicSchema, ...(schemaMarkup ? (Array.isArray(schemaMarkup) ? schemaMarkup : [schemaMarkup]) : [])];
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href={canonicalURL} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Preload fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- Primary Meta -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
+<meta name="author" content={clinic.name} />
+<meta name="keywords" content="clinic Legian Bali, doctor Legian, medical clinic Bali, emergency clinic Bali, IV drip Bali, klinik Legian" />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+<meta property="og:image:alt" content={`${clinic.name} - Bali`} />
+<meta property="og:site_name" content={clinic.name} />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
+<!-- JSON-LD Structured Data -->
+{schemas.map(schema => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

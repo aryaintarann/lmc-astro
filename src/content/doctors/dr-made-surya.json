@@ -1,0 +1,17 @@
+{
+  "id": "dr-made-surya",
+  "name": "dr. Made Surya Dharma",
+  "slug": "dr-made-surya",
+  "title": "dr.",
+  "specialization": "Emergency Medicine",
+  "education": [
+    "M.D., Faculty of Medicine, Universitas Indonesia, Jakarta (2010)",
+    "Advanced Trauma Life Support (ATLS) Certified (2015)",
+    "ACLS Certified"
+  ],
+  "languages": ["Indonesian", "English"],
+  "photo": "/images/doctors/dr-made-surya.jpg",
+  "schedule": "Mon – Sun, 15:00 – 22:00",
+  "bio": "dr. Made Surya Dharma specializes in emergency medicine with extensive experience in acute trauma care and critical stabilization. He is ATLS and ACLS certified, ensuring the highest standard of emergency care for all patients.",
+  "order": 2
+}

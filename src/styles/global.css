@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply scroll-smooth; }
+
+  body {
+    @apply font-body text-ink antialiased bg-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 { @apply font-heading; }
+}
+
+@layer components {
+
+  /* ── Buttons ──────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+           font-body font-medium text-sm rounded-lg
+           transition-all duration-150
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-white px-5 py-2.5
+           hover:bg-primary-dark active:scale-[0.98]
+           shadow-sm focus-visible:ring-primary;
+  }
+  .btn-outline {
+    @apply btn border border-border-dark text-ink px-5 py-2.5
+           hover:border-primary hover:text-primary hover:bg-primary-light
+           focus-visible:ring-primary;
+  }
+  .btn-ghost {
+    @apply btn text-ink-secondary px-4 py-2.5
+           hover:bg-surface hover:text-ink
+           focus-visible:ring-primary;
+  }
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] text-white px-5 py-2.5
+           hover:bg-[#1aad55] active:scale-[0.98]
+           shadow-sm focus-visible:ring-[#25D366];
+  }
+  .btn-lg { @apply px-6 py-3 text-base rounded-xl; }
+
+  /* ── Section chrome ───────────────────────── */
+  .section-label {
+    @apply text-label font-heading font-semibold uppercase tracking-widest text-primary;
+  }
+  .section-title {
+    @apply font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-ink leading-tight;
+  }
+  .section-desc {
+    @apply text-ink-secondary leading-relaxed mt-3 max-w-2xl;
+  }
+
+  /* ── Card ─────────────────────────────────── */
+  .card {
+    @apply bg-white border border-border rounded-xl shadow-card
+           hover:shadow-card-hover transition-shadow duration-200 overflow-hidden;
+  }
+
+  /* ── Badges ───────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1;
+  }
+  .badge-emergency { @apply badge bg-red-50 text-red-600; }
+  .badge-open      { @apply badge bg-accent-light text-accent; }
+  .badge-blue      { @apply badge bg-primary-light text-primary; }
+
+  /* ── Form controls ────────────────────────── */
+  .input {
+    @apply w-full text-sm text-ink placeholder-ink-secondary/50
+           border border-border rounded-lg px-4 py-2.5 bg-white
+           focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary
+           transition-colors duration-150;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink mb-1.5;
+  }
+}
+
+/* ── Scroll-in animations ─────────────────────── */
+.appear {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.appear.in-view { opacity: 1; transform: translateY(0); }
+
+.appear-group > * { transition-delay: calc(var(--i, 0) * 70ms); }
+
+/* ── Reduced motion ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .appear { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Subtle scrollbar ─────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }

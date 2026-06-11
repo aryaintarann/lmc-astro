@@ -1,0 +1,20 @@
+{
+  "id": "laboratory",
+  "name": "Laboratory & Blood Tests",
+  "slug": "laboratory",
+  "shortDescription": "Fast and accurate laboratory testing including blood tests, urinalysis, and diagnostic panels.",
+  "fullDescription": "Our in-house laboratory offers a comprehensive range of diagnostic tests with fast turnaround times. We perform blood chemistry panels, complete blood counts (CBC), blood glucose testing, liver and kidney function tests, urinalysis, STI screening, and more. Results are typically available within 1–2 hours, allowing our doctors to provide prompt diagnosis and treatment.",
+  "icon": "flask-conical",
+  "image": "/images/services/laboratory.jpg",
+  "features": [
+    "Complete blood count (CBC)",
+    "Blood chemistry and glucose tests",
+    "Liver and kidney function panels",
+    "Urinalysis and urine culture",
+    "STI and infection screening",
+    "Fast results in 1–2 hours"
+  ],
+  "isEmergency": false,
+  "isFeatured": false,
+  "order": 7
+}
